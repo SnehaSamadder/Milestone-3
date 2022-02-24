@@ -1,0 +1,43 @@
+package Sneha.Testing;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Demo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+  System.setProperty("webdriver.chrome.driver","C:\\Program Files\\chromedriver.exe");
+  WebDriver driver=new ChromeDriver();
+  driver.manage().window().maximize();
+  driver.get("http://www.indiabookstore.net/");
+  driver.findElement(By.id("searchBox")).click();
+  driver.findElement(By.id("searchBox")).sendKeys("Selenium");
+  driver.findElement(By.id("searchBox")).sendKeys(Keys.ENTER);
+  driver.findElement(By.xpath("//div[@class='isbnContainer']")).getText();
+  String isbn;
+System.out.println("isbn is"+isbn);
+driver.findElement(By.xpath(("//*[@id='bookInfoWindow']/div/div/div[2]/div[2]/div[2]/div[3]/a"))).click();
+String winHandleBefore1 = driver.getWindowHandle();
+for(String winHnadle : driver.getWindowHandles());
+String winHandle;
+driver.switchTo().window(winHandle);
+	}
+	
+	String price=driver.findElement(By.id("price")).getText();
+	System.out.println(price);
+	String stock=driver.findElement(By.id("availability")).getText();
+	
+	if(stock.contains("left"))
+	{
+		System.out.println("Stock available");
+	}
+	System.out.println(stock);
+	String isbn2=driver.findElement(By.xpath("//*[@id=\"detailBullets_feature_div\"]/ul/li[5]/span/span[2]")).getText();
+	System.out.println("ISBN in amazonwebsite is "+isbn2);
+}
+}
+	
